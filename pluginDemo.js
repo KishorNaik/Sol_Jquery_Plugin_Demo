@@ -4,7 +4,9 @@
 
 $.fn.greenify = function () {
 
+    // Set Default Colors
     $(this).css("color", "red");
+    $(this).css("background-color", "yellow");
 
     // Chain Public Method
     this.AddForegroundColor = function (colorName) {
@@ -24,9 +26,10 @@ $.fn.greenify = function () {
         let sendData = "Hello from Plugin";
 
         $(this).click(function () {
-            actionObj($(this), sendData); // Delegate
+            actionObj($(this), sendData, (getDivData) => {
+                console.log(getDivData);
+            }); // Delegate
         });
-
     }
 
     return this;
